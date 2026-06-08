@@ -16,7 +16,7 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
   body::after{content:"";position:fixed;top:-30%;left:50%;transform:translateX(-50%);width:120vw;height:80vh;pointer-events:none;z-index:0;background:radial-gradient(closest-side,rgba(77,255,46,.10),transparent 70%)}
   /* ===== AMBIENT RIG FX: site-wide laser + smoke ===== */
-  .laser-fx,.smoke-fx{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+  .laser-fx{position:fixed;inset:0;z-index:40;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
   .beam{position:absolute;top:-12vh;left:50%;width:3px;height:175vh;transform-origin:top center;
     background:linear-gradient(to bottom,rgba(77,255,46,.42),rgba(157,255,107,.14) 38%,transparent 74%);
     filter:blur(1px);animation:sweep var(--d) ease-in-out infinite alternate}
@@ -25,10 +25,7 @@
   .edge.l{left:0;background:linear-gradient(90deg,rgba(77,255,46,.20),transparent)}
   .edge.r{right:0;background:linear-gradient(270deg,rgba(77,255,46,.20),transparent);animation-delay:-2.2s}
   @keyframes flick{0%,100%{opacity:.16}50%{opacity:.5}}
-  .puff{position:absolute;bottom:-12vh;border-radius:50%;filter:blur(40px);
-    background:radial-gradient(closest-side,rgba(120,255,80,.22),rgba(77,255,46,.10) 55%,transparent 73%);animation:drift var(--d) ease-in infinite}
-  @keyframes drift{0%{transform:translate(var(--x0),26vh) scale(.5) rotate(0deg);opacity:0}12%{opacity:.7}45%{transform:translate(calc(var(--x0)*.3 + var(--x1)*.7),-42vh) scale(1.15) rotate(8deg)}78%{opacity:.42}100%{transform:translate(var(--x1),-130vh) scale(1.85) rotate(16deg);opacity:0}}
-  @media(prefers-reduced-motion:reduce){.beam,.edge,.puff{animation:none;opacity:.25}}
+      @media(prefers-reduced-motion:reduce){.beam,.edge{animation:none;opacity:.4}}
 
   header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 6vw;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(5,8,6,.85),rgba(5,8,6,0));border-bottom:1px solid transparent;transition:.3s}
   header.scrolled{border-bottom:1px solid var(--line);background:rgba(5,8,6,.92)}
@@ -128,16 +125,6 @@
   <span class="beam" style="--a1:22deg;--a2:36deg;--d:10s"></span>
   <span class="edge l"></span><span class="edge r"></span>
 </div>
-<div class="smoke-fx" aria-hidden="true">
-  <span class="puff" style="--x0:-8vw;--x1:6vw;--d:22s;width:40vw;height:40vw;left:4%"></span>
-  <span class="puff" style="--x0:6vw;--x1:-8vw;--d:28s;width:52vw;height:52vw;left:40%;animation-delay:-6s"></span>
-  <span class="puff" style="--x0:0vw;--x1:10vw;--d:25s;width:38vw;height:38vw;left:68%;animation-delay:-13s"></span>
-  <span class="puff" style="--x0:-6vw;--x1:2vw;--d:31s;width:46vw;height:46vw;left:20%;animation-delay:-18s"></span>
-  <span class="puff" style="--x0:4vw;--x1:-4vw;--d:19s;width:30vw;height:30vw;left:50%;animation-delay:-3s"></span>
-  <span class="puff" style="--x0:-2vw;--x1:8vw;--d:24s;width:34vw;height:34vw;left:80%;animation-delay:-10s"></span>
-  <span class="puff" style="--x0:2vw;--x1:-6vw;--d:34s;width:50vw;height:50vw;left:10%;animation-delay:-24s"></span>
-</div>
-
 <header id="hdr">
   <div class="brand">VISSIE<b> G</b></div>
   <a class="wa-btn" href="https://wa.me/27794123031?text=Hi%20Vissie%20G%2C%20I'd%20like%20to%20book%20you%20for%20an%20event." target="_blank" rel="noopener">
